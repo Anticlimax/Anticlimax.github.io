@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>task5</title>
+  <style>
+    body,html,ul,li,div,a {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      list-style:none;
+      font-family: "微软雅黑";
+      text-decoration: none;
+    }
+    body {
+      position: relative;
+    }
+    nav {
+      position: fixed;
+      width: 100%;
+      top: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .title {
+      display: flex;
+      background-color: #5fc0ce;
+      height: 3rem;
+      line-height: 3rem;
+    }
+    .arrwo-wrap {
+      flex: 1;
+      
+    }
+    .arrow {
+      color: white;
+      text-decoration: none;
+      font-size: 2rem;
+      padding-left: 1rem;
+    }
+    .mainpage {
+      flex: 1;
+      position: relative;
+      font-size: 1.5rem;
+      color: white;
+      right: 2rem;
+    }
+    .brief {
+      margin-top: 3rem;
+      height: 17.0625rem;
+      background-image: url("images/task5-1_02.png");
+      background-repeat: no-repeat;
+      background-size: contain ;
+    }
+    .skill {
+      border-left: 1px solid lightgray;
+      border-right: 1px solid lightgray;
+      border-bottom: 1px solid lightgray;
+    }
+    .pro {
+      padding:1rem 2rem;
+      border-bottom: 1px solid lightgray;
+      font-size: 1.5rem;
+      background-image: linear-gradient(to bottom,#5fc0ce,#5fc0ce);
+      background-repeat: no-repeat;
+      background-position: 2%;
+      background-size:3px 20px;
+    }
+    .items-wrap {
+      display: flex;
+      margin-left: 1rem;
+      padding: 1rem;
+      font-size: 1.2rem;
+      border-bottom: 1px solid lightgray;
+    }
+    .items {
+      padding-right: 1rem;
+      background-image: linear-gradient(to bottom,#e7e7e7,#e7e7e7);
+      background-repeat: no-repeat;
+      background-position: right;
+      background-size:3px 20px;
+      color: gray;
+      flex-grow: 0;
+      flex-shrink: 0;
+      flex-basis: auto;
+    }
+    .items-wrap:first-child .items {
+      color: black;
+    }
+    .items-wrap:last-child {
+      border: none;
+    }
+    .nomeal, .year, .allday, .price, .exp {
+      padding-left: 1rem;
+    }
+    .price {
+      color: red;
+    }
+    .btn {
+      display: flex;
+      flex-wrap: nowrap;
+      font-size: 1.5rem;
+      border: 1px solid lightgray;
+      border-top: none;
+      padding-bottom: 4rem;
+    }
+    .btn1, .btn2 {
+      flex-grow: 1;
+      text-align: center;
+      padding-top: 4rem;
+    }
+    .btn1 > a {
+      padding: 1rem 30%;
+      border: 1px solid #5fc0ce;
+      border-radius: 5px;
+      color: #5fc0ce;
+    }
+    .btn2 > a {
+      padding: 1rem 20%;
+      border: 1px solid #5fc0ce;
+      border-radius: 5px;
+      color: white;
+      background-color: #5fc0ce;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="container">
+      <div class="title">
+        <div class="arrwo-wrap">
+          <a href="##" class="arrow"><</a>
+        </div>
+        <div class="mainpage">个人主页</div>
+      </div>
+    </div>
+  </nav>
+  <header>
+    <div class="container">
+      <div class="brief"></div>
+    </div>
+  </header>
+  <article>
+    <div class="container">
+      <div class="skill">
+        <div class="pro">专业技能</div>
+        <ul>
+          <li class="items-wrap">
+            <div class="items">
+              <img src="images/task5-1_05.png" alt="">住家
+            </div>
+            <div class="nomeal"><img src="images/task5-1_05.png" alt="">不含餐</div>
+          </li>
+          <li class="items-wrap">
+            <div class="items">从业年限</div>
+            <div class="year">0~3年</div>
+          </li>
+          <li class="items-wrap">
+            <div class="items">工作时间</div>
+            <div class="allday">全天</div>
+          </li>
+          <li class="items-wrap">
+            <div class="items">服务价格</div>
+            <div class="price">25元/小时</div>
+          </li>
+          <li class="items-wrap">
+            <div class="items">自我介绍</div>
+            <div class="exp">可以洗衣、做饭、照顾老人。在护工方面有2年经验，经验丰富</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </article>
+  <footer>
+    <div class="container">
+      <div class="btn">
+        <div class="btn1"><a href="##">留言</a></div>
+        <div class="btn2"><a href="##">电话联系</a></div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
