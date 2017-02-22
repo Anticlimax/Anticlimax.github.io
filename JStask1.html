@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1.5,maximum-scale=3">
+  <title>JStask1</title>
+  <style>
+    html,body{
+      width:100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: red;
+    }
+    .ctt {
+      margin-top: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .ct {
+      width: 550px;
+      display: flex;
+      flex-flow: row wrap;
+    }
+    .cube {
+      height: 150px;
+      width: 150px;
+      background-color: yellow;
+      flex: none;
+      margin: 10px;
+      border-radius: 5px;
+    }
+    .btn-wrapper {
+      text-align: center;
+      margin-top: 50px;
+    }
+    .btn-wrapper>div {
+      margin: 20px;
+    }
+    a {
+      text-decoration: none;
+      color: white;
+      border: 1px solid white;
+      padding: 5px 200px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="ctt">
+    <div class="ct">
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+      <div class="cube"></div>
+    </div>
+  </div>
+  <div class="btn-wrapper">
+    <div><a class="btn1" href="#">开始闪</a></div>
+    <div><a class="btn2" href="#">结束闪</a></div>
+  </div>
+  <script>
+    
+      var     cube = document.getElementsByClassName('cube'),
+              btn1 = document.getElementsByClassName('btn1')[0],
+              btn2 = document.getElementsByClassName('btn2')[0];
+
+
+      function randomColor() {
+        var col = '#';
+        while(col.length != 7) {
+          col += '0123456789abcdef'[Math.floor(Math.random()*16)]
+        }
+        return col;
+      }
+      function randomNum() {
+        var ranNum = Math.floor(Math.random()*9);
+        return ranNum;
+      }
+      
+      function changeColor() {
+        for(var i = 0; i < 3; i++) {
+          cube[randomNum()].style.backgroundColor = randomColor();
+        }
+      }
+      function clearColor() {
+        for(var i = 0; i < 9; i++) {
+          cube[i].style.backgroundColor = 'yellow';
+        }
+      }
+      var id1 ;
+      function loop() {
+        id1 = setInterval(changeColor,500);
+      }
+      btn1.onclick = loop;
+      btn2.onclick = function () {
+        clearInterval(id1);
+        clearColor();
+      };
+    
+  </script>
+</body>
+</html>
