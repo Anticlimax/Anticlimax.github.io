@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>checkbox radio</title>
+	<style>
+		#cb ,#rd {
+			display: none;
+		}
+		.lb1 {
+			display: inline-block;
+  			width: 20px;
+  			height: 20px;
+  			background: url("http://p1.bqimg.com/567571/99322cf8c3283e42.png");
+  			background-position: 79px -28px;
+		}
+		#cb:checked~.lb1 {
+  			background-position: -56px -77px;
+		}
+		.lb1::after {
+			content: '背景图';
+			margin-left: 30px;
+			margin-top: 5px;	
+			width: 50px;
+			display: inline-block;
+		}
+		.lb2 {
+			margin-left: 200px;
+		}
+		.lb2::before {
+			content: '';
+			width: 20px;
+			height: 20px;
+			border-radius: 20px;
+			border: 1px solid lightgray;
+			display: inline-block;
+			box-sizing: border-box;
+		}
+		#rd:checked~.lb2::before {
+			background-color: red;
+			border: 5px solid lightgray;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<input type="checkbox" id="cb">
+		<label class="lb1" for="cb"></label>
+		<input type="radio" id="rd">
+		<label class="lb2" for="rd">伪元素</label>
+	</div>
+</body>
+</html>
