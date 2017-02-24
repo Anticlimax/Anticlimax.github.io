@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>自定义鼠标右键</title>
+  <style>
+    body,html {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    ul,li {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    .ct {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      
+    }
+    .rc {
+      position: relative;
+      background-color: lightgray;
+      width: 100%;
+      text-align: center;
+      padding: 100px;
+      font-size: 20px;
+      
+    }
+    .rcitem {
+      position: absolute;
+      background-color: white;
+      width: 200px;
+    }
+    .rcitem li {
+      padding: 10px;
+      cursor: pointer;
+    }
+    .rcitem li:hover {
+      background-color: #eeeeee;
+    }
+  </style>
+</head>
+<body>
+  <div class="ct">
+    <div class="rc">Right click here</div>
+  </div>
+  <script>
+    var     rc = document.querySelector('.rc'),
+            ct = document.querySelector('.ct'),
+            menuCt = document.createElement('ul'),
+            menu = '<li> menu1</li><li> menu2</li>';
+    
+    //ul添加class=rcitem 并设置其innerhtml
+    menuCt.setAttribute('class','rcitem');
+    menuCt.innerHTML = menu;
+    
+    //右键点击区添加contextmenu事件
+    rc.addEventListener('contextmenu',function (e) {
+      
+      //阻止右键的默认菜单
+      e.preventDefault();
+      
+      var     pointX = e.clientX,//鼠标相对window的横坐标
+              pointY = e.clientY,//鼠标相对window的纵坐标
+              posX = document.body.scrollLeft + pointX,//鼠标的绝对横坐标
+              posY = document.body.scrollTop + pointY,//鼠标的绝对纵坐标
+              rcW = rc.offsetWidth,//点击区的宽度
+              rcH = rc.offsetHeight,//点击区的高度
+              rcY = rc.offsetTop - document.body.scrollTop + rcH;//点击区下边缘的绝对纵坐标
+      
+      //将ul节点插入到ct
+      ct.appendChild(menuCt);
+      
+      //获取菜单的宽高
+      var menuW = menuCt.offsetWidth;
+      var menuH = menuCt.offsetHeight;
+      
+      if (pointX + menuW < rcW) {
+        if (pointY + menuH < rcY) {
+          menuCt.style.left = posX + 'px';
+          menuCt.style.top = posY + 'px';
+        } else {
+          menuCt.style.left = posX + 'px';
+          menuCt.style.top = posY - menuH + 'px';
+        }
+      } else {
+        if (pointY + menuH < rcY) {
+          menuCt.style.left = posX - menuW + 'px';
+          menuCt.style.top = posY + 'px';
+        } else {
+          menuCt.style.left = posX - menuW + 'px';
+          menuCt.style.top = posY - menuH + 'px';
+        }
+      }
+      
+      //阻止菜单本身的右键菜单
+      menuCt.addEventListener('contextmenu',function (e) {
+        e.preventDefault();
+      })
+    })
+    
+    //在点击区其他区域左键将关闭菜单
+    rc.addEventListener('click',function () {
+      ct.removeChild(menuCt);
+    })
+  </script>
+</body>
+</html>
