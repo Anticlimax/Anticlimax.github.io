@@ -1,29 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="baidu-site-verification" content="bxC4BLYzM4" />
-  <title>task3</title>
-  <style>
-    body {
-      background-color: #0593d3;
-    }
-    p:first-child {
-      font-size: 40px;
-      padding-top: 200px;
-      text-align: center;
-      letter-spacing: 50px;
-      color: white;
-      font-family: sans-serif;
-    }
-    .img {
-      text-align: center;
-      padding-top: 200px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>task6</title>
+    <style>
+        @keyframes loading {
+            0% {
+                transform: scale(1, 1);
+            }
+            50% {
+                transform: scale(1, 1.5);
+            }
+            100% {
+                transform: scale(1, 1);
+            }
+        }
+        
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .ct {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .box1,
+        .box2,
+        .box3 {
+            width: 10px;
+            height: 100px;
+            background: black;
+            margin: 5px;
+        }
+        
+        .box1 {
+            animation: loading 1s ease-in-out infinite;
+        }
+        
+        .box2 {
+            animation: loading 1s ease-in-out infinite 0.2s;
+        }
+        
+        .box3 {
+            animation: loading 1s ease-in-out infinite 0.4s;
+        }
+    </style>
 </head>
+
 <body>
-  <p>芒志吃大便</p>
-  <div class="img"><img src="http://read.html5.qq.com/image?src=forum&q=5&r=0&imgflag=7&imageUrl=http://mmbiz.qpic.cn/mmbiz_jpg/QDo2XJl0f2jFuP4D0QE4Daua5T7LXhCg8OaicP3IF3XxDcPFmWZ6NQqhVNByl3icyib4icEqNn5rnYviaicbWqjSdk4A/0?wx_fmt=jpeg" alt=""></div>
+    <div class="ct">
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+    </div>
 </body>
+
 </html>
