@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./bootstrap.min.css">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: #eee;
+    }
+    .margin-t-b{
+      margin-top:50px;
+      margin-bottom: 50px;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="container">
+    <div class="col-lg-12 text-center">
+      <img class="img-rounded" src="./notepad.png">
+    </div>
+    <div class="newTask col-lg-12 text-center margin-t-b">
+      <input class="form-control" type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
+    </div>
+    <ul class="todos list-group">
+      <li v-for=" item in todoList" class="col-lg-12 text-center list-group-item">
+        <span class="col-lg-1"><input type="checkbox" v-model="item.done"></span>
+        <span class="col-lg-6 "><strong> {{ item.title }}</strong> </span>
+        <span class="col-lg-2" v-html="item.createAt"></span>
+        <span class="col-lg-1" v-if="item.done"><s>已完成</s></span>
+        <span class="col-lg-1" v-else>未完成</span>
+        <button @click="removeTodo(item)" class="btn btn-danger btn-sm">X</button>
+      </li>
+    </ul>
+  </div>
+
+  <script src="bundle.js"></script>
+  
+</body>
+</html>
