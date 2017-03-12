@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="./bootstrap.min.css">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: #eee;
+    }
+    .margin-t-b{
+      margin-top:50px;
+      margin-bottom: 50px;
+    }
+    .todos>li:hover{
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" class="container">
+    <section id="signInAndSignUp" v-if="!currentUser">
+      <div>
+        <label><input type="radio" v-model="actionType" name="type" value="signUp">注册</label>
+        <label><input type="radio" v-model="actionType" name="type" value="login">登陆</label>
+      </div>
+      <div class="signup" v-if="actionType == 'signUp'">
+        <form @submit.prevent="signUp">
+          <div class="formRow">
+            用户名<input type="text" v-model="formData.username">
+          </div>
+          <div class="formRow">
+            密码<input type="password" v-model="formData.password">
+          </div>
+          <div class="formActions">
+            <input type="submit" value="注册" class="btn btn-primary">
+          </div>
+        </form>
+      </div>
+      <div class="login" v-if="actionType == 'login'">
+        <form @submit.prevent="login">
+          <div class="formRow">
+            用户名<input type="text" v-model="formData.username">
+          </div>
+          <div class="formRow">
+            密码<input type="password" v-model="formData.password">
+          </div>
+          <div class="formActions">
+            <input type="submit" value="登入" class="btn btn-success">
+          </div>
+        </form>
+      </div>
+    </section>
+    <section id="todo" v-if="currentUser">
+      <p>当前用户 {{ currentUser.username }}</p>
+      <p><button @click="logout" class="btn btn-danger">登出</button></p>
+      <div class="col-lg-12 text-center">
+        <img class="img-rounded" src="./notepad.png">
+      </div>
+      <div class="newTask col-lg-12 text-center margin-t-b">
+        <input class="form-control" type="text" v-model="newTodo" v-on:keyup.enter="addTodo">
+      </div>
+      <ul class="todos list-group">
+        <li v-for=" item in todoList" class="col-lg-12 text-center list-group-item">
+          <span class="col-lg-1"><input type="checkbox" v-model="item.done" @click="saveOrUpdateTodos"></span>
+          <span class="col-lg-6 "><strong> {{ item.title }}</strong> </span>
+          <span class="col-lg-2" v-html="item.createAt"></span>
+          <span class="col-lg-1" v-if="item.done"><s>已完成</s></span>
+          <span class="col-lg-1" v-else>未完成</span>
+          <button @click="removeTodo(item)" class="btn btn-danger btn-sm">X</button>
+        </li>
+      </ul>
+    </section>
+
+  </div>
+
+  <script src="bundle.js"></script>
+  
+</body>
+</html>
