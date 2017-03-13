@@ -17,7 +17,7 @@ import './assets/reset.css'
 import topBar from './components/topBar'
 import resumeEditor from './components/resumeEditor'
 import resumePreview from './components/resumePreview'
-
+import icons from './assets/icons'
 
 export default {
   name: 'app',
@@ -30,11 +30,22 @@ export default {
     topBar,
     resumeEditor,
     resumePreview
+  },
+  created(){
+    document.body.insertAdjacentHTML('afterbegin',icons)
   }
 }
 </script>
 
 <style>
+
+  svg.icon {
+    height: 1em;
+    width: 1em;
+    fill: currentColor;
+    vertical-align: -0.1em;
+    font-size: 16px;
+  }
   .page {
     height: 100vh;
     display: flex;

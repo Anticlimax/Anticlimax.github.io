@@ -1,6 +1,36 @@
 <template>
   <div id="resumeEditor">
-    I am resumeeditor
+    <nav>
+      <ul>
+        <li v-for="item in resume.config"
+            :class="{active: item.field === selected}"
+            @click="selected = item.field">
+            <svg class="icon">
+              <use :xlink:href="`#icon-${item.icon}`"></use>
+            </svg>
+        </li>
+      </ul>
+    </nav>
+    <ul class="panels">
+      <li v-for="item in resume.config"
+          v-show="item.field === selected">
+        <div v-if="resume[item.field] instanceof Array">
+          <div class="subitem" v-for="subitem in resume[item.field]">
+            <div class="resumeField" v-for="(value,key) in subitem">
+              <label> {{ key }}</label>
+              <input type="text" :value="value">
+            </div>
+            <hr>
+          </div>
+        </div>
+        <div class="resumeField" 
+             v-for="(value,key) in resume[item.field]"
+             v-else>
+          <label>{{ key }}</label>
+          <input type="text" v-model="resume[item.field][key]">
+        </div>   
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -9,15 +39,100 @@
     name:'resumeEditor',
     data(){
       return {
-
+        selected: 'profile',
+        resume: {
+          config:[
+            {field:'profile',icon:'id'},
+            {field:'workHistory',icon:'work'},
+            {field:'education',icon:'book'},
+            {field:'projects',icon:'heart'},
+            {field:'awards',icon:'cup'},
+            {field:'contacts',icon:'phone'}
+          ],
+          profile: {
+            name: '',
+            city: '',
+            title: ''
+          },
+          workHistory:[
+            {company:'AL',content:'我的第二份工作是'},
+            {company:'TX',content:'我的第一份工作是'}
+          ],
+          education:[
+            { school:'AL',content:'文字'},
+            { school:'AL',content:'文字'}
+          ],
+          projects:[
+            { name:'AL',content:'文字'},
+            { name:'AL',content:'文字'}
+          ],
+          awards:[
+            { name:'AL',content:'文字'},
+            { name:'AL',content:'文字'}
+          ],
+          contacts:[
+            { contacts:'AL',content:'18671777177'},
+            { contacts:'AL',content:'121121121'}
+          ]       
+        }
       }
     }
   }
 </script>
 
-<style >
+<style scope lang="scss">
   #resumeEditor {
     background: #ffffff;
     box-shadow: 0 1px 3px 0 rgba(0,0,0,0.25);
+    display: flex;
+    overflow: auto;
+    > nav {
+      width: 80px;
+      background: black;
+      color: white;
+      li {
+        height: 48px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 16px;
+        margin-bottom: 16px;
+        &.active {
+          background: white;
+          color: black;
+        }
+      }
+    }
+    > .panels {
+      flex:auto;
+      > li {
+        padding: 24px;
+      }
+    }
+  }
+  ul {
+    list-style: none;
+  }
+  svg.icon {
+    width: 24px;
+    height:24px;
+  }
+  .resumeField {
+    > label {
+      display: block;
+    }
+    input[type=text] {
+      margin: 16px 0;
+      border: 1px solid #ddd;
+      box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.25);
+      width: 100%;
+      height: 40px;
+      padding: 0 8px;
+    }
+  }
+  hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 24px 0;
   }
 </style>
