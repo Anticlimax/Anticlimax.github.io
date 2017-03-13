@@ -1,0 +1,23 @@
+<template>
+  <div id="resumeEditor">
+    I am resumeeditor
+  </div>
+</template>
+
+<script>
+  export default {
+    name:'resumeEditor',
+    data(){
+      return {
+
+      }
+    }
+  }
+</script>
+
+<style >
+  #resumeEditor {
+    background: #ffffff;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.25);
+  }
+</style>
