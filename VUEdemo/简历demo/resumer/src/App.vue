@@ -18,14 +18,11 @@ import topBar from './components/topBar'
 import resumeEditor from './components/resumeEditor'
 import resumePreview from './components/resumePreview'
 import icons from './assets/icons'
+import store from './store/index'
 
 export default {
   name: 'app',
-  data(){
-    return {
-      text:'你好啊'
-    }
-  },
+  store,
   components:{
     topBar,
     resumeEditor,
@@ -69,7 +66,7 @@ export default {
   }
 
   #resumeEditor {
-    width: 35%;
+    min-width: 35%;
     background: #444;
   }
 

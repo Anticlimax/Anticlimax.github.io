@@ -18,7 +18,7 @@
           <div class="subitem" v-for="subitem in resume[item.field]">
             <div class="resumeField" v-for="(value,key) in subitem">
               <label> {{ key }}</label>
-              <input type="text" :value="value">
+              <input type="text" :value="value" v-model="subitem[key]">
             </div>
             <hr>
           </div>
@@ -39,43 +39,24 @@
     name:'resumeEditor',
     data(){
       return {
-        selected: 'profile',
-        resume: {
-          config:[
-            {field:'profile',icon:'id'},
-            {field:'workHistory',icon:'work'},
-            {field:'education',icon:'book'},
-            {field:'projects',icon:'heart'},
-            {field:'awards',icon:'cup'},
-            {field:'contacts',icon:'phone'}
-          ],
-          profile: {
-            name: '',
-            city: '',
-            title: ''
-          },
-          workHistory:[
-            {company:'AL',content:'我的第二份工作是'},
-            {company:'TX',content:'我的第一份工作是'}
-          ],
-          education:[
-            { school:'AL',content:'文字'},
-            { school:'AL',content:'文字'}
-          ],
-          projects:[
-            { name:'AL',content:'文字'},
-            { name:'AL',content:'文字'}
-          ],
-          awards:[
-            { name:'AL',content:'文字'},
-            { name:'AL',content:'文字'}
-          ],
-          contacts:[
-            { contacts:'AL',content:'18671777177'},
-            { contacts:'AL',content:'121121121'}
-          ]       
-        }
+        
       }
+    },
+    computed:{
+      selected:{
+        get(){
+          return this.$store.state.selected
+        },
+        set(value){
+          return this.$store.commit('switchTab',value)
+        }
+      },
+      resume(){
+        return this.$store.state.resume
+      }
+    },
+    methods:{
+
     }
   }
 </script>
