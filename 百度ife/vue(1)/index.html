@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    function Observer(obj){
+      this.obj = obj
+      let data = this.deepCopy(obj)
+      return {
+        data:data
+      }
+    }
+
+    let p = Observer.prototype
+
+    p.deepCopy = function(obj){
+      let newObj = {}
+      for(let key in obj){
+        if(typeof obj[key] === 'object'){
+          deepCopy(newObj[key])
+        }
+        this.convert(newObj,key,obj[key])
+      }
+      return newObj
+    }
+
+    p.convert = function (obj,key,val){
+      Object.defineProperty(obj,key,{
+        enumerable:true,
+        configurable:true,
+        get(){
+          console.log('你访问了' + key)
+          return key
+        },
+        set(newVal){
+          console.log('你设置了' + key + ' 值为' + 'val')
+          val = newVal
+        }
+      })
+    }
+    
+    let a = new Observer({a:1,b:2})
+    
+  </script>
+</body>
+
+</html>

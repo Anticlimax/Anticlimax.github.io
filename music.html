@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <p class="title"></p>
+  <p class="artist"></p>
+  <div class="img"><img></div>
+  <audio controls id="panel" autoplay>
+
+  </audio>
+  <button id="btn">下一首</button>
+  <script src="jquery-3.1.1.js"></script>
+  <script>
+    function getSong() {
+      $.get('http://api.jirengu.com/fm/getSong.php')
+        .done(function (info) {
+          var allInfo = JSON.parse(info)
+          showTitle(allInfo.song[0].title)
+          console.log(allInfo.song[0].title)
+          showArtist(allInfo.song[0].artist)
+          showPic(allInfo.song[0].picture)
+          addSrc(allInfo.song[0].url)
+        })
+    }
+
+
+
+    function showTitle(data) {
+      var $title = $('.title')
+      $title.text(data)
+    }
+
+    function showArtist(data) {
+      var $artist = $('.artist')
+      $artist.text(data)
+    }
+
+    function showPic(data) {
+      var $img = $('.img').find('img')
+      $img.attr('src', data)
+    }
+
+    function addSrc(data) {
+      var $audio = $('#panel')
+      $audio.attr('src', data)
+    }
+
+    $('#btn').on('click', function () {
+      getSong()
+    })
+
+    getSong()
+  </script>
+</body>
+
+</html>
