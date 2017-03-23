@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="referrer" content="no-referrer">
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/iconfont.css">
+  <script src="./script/jquery-3.1.1.js"></script>
+  <script src="./font/iconfont.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  
+  <div id="container">
+    <div id="app">
+      <div id="header">
+        <div class="pic"></div>
+      </div>
+      <div id="main">
+        <div class="artist"></div>
+        <div class="title"></div>
+      </div>
+      <div id="footer">
+        <div class="processBar">
+          <div class="backBar"></div>
+          <div class="frontBar"></div>
+        </div>
+        <div class="buttons">
+          <div class="left">
+            <div class="startOrPause">
+              <div class="start">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-ic_play_circle_fill_px"></use>
+                </svg>
+              </div>
+              <div class="pause">
+                <svg class="icon" aria-hidden="true">
+                  <use xlink:href="#icon-ic_pause_circle_fill_px"></use>
+                </svg>
+              </div>
+            </div>
+            <div class="pre">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-iconfontcolor98"></use>
+              </svg>
+            </div>
+            <div class="next">
+              <svg class="icon" aria-hidden="true">
+                <use xlink:href="#icon-iconfontcolor97"></use>
+              </svg>
+            </div>
+          </div>
+          <div class="listIcon">
+            <svg class="icon" aria-hidden="true">
+              <use xlink:href="#icon-liebiao"></use>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div id="list">
+        <ul class="channel">
+      
+        </ul>
+      </div>
+      <audio id="music" autoplay></audio>
+    </div>
+    <ul id="lyric">
+      
+    </ul>
+  </div>
+
+
+
+
+
+  <script src="./script/main.js"></script>
+
+</body>
+
+</html>
