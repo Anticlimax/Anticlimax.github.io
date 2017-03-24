@@ -9,9 +9,10 @@ var app = (function () {
   }
 
   fmPlayer.prototype.init = function () {
-    this.container = $('#container')
+    this.container = $('#container');
     this.app = $('#app');
-    this.lyric = $('#lyric')
+    this.header = this.app.find('#header');
+    this.lyric = $('#lyric');
     this.pic = this.app.find('.pic');
     this.artist = this.app.find('.artist');
     this.title = this.app.find('.title');
@@ -33,7 +34,8 @@ var app = (function () {
     this.sid = '';
     this.lyricArr = [];
 
-    this.getChannel();
+
+
     this.getMusic();
 
 
@@ -100,10 +102,12 @@ var app = (function () {
 
     this.backBar.on('click',function (e) {
       that.clickBar(e);
+      that.reRenderLycBack(that.audioObject.currentTime);
     });
 
     this.frontBar.on('click',function (e) {
       that.clickBar(e);
+      that.reRenderLycFront(that.audioObject.currentTime);
     });
 
     this.listIcon.on('click',function () {
@@ -115,15 +119,19 @@ var app = (function () {
       that.getMusic($(this).attr('data'));
       that.list.fadeOut(500)
     })
+
+    this.header.on()
   }
 
   fmPlayer.prototype.getMusic = function (data) {
     var that = this;
-    var url = '?channel=' + data || '';
-    $.get('http://api.jirengu.com/fm/getSong.php' + url)
+    // var url = '?channel=' + data || '';
+    var url = data? '?channel=' + data : '';
+      $.get('http://api.jirengu.com/fm/getSong.php' + url)
       .done(function (song) {
         var data = JSON.parse(song);
         that.play(data);
+        that.getChannel()
     })
 
   }
@@ -209,14 +217,13 @@ var app = (function () {
     })
   }
 
-  fmPlayer.prototype.highLight = function (currentTime) {
+  fmPlayer.prototype.highLight = function () {
     var that = this;
     this.lyricArr.forEach(function (item, index) {
       if(Math.floor(that.currentTime) === item.time){
         that.lyric.find('li:first-child').animate({
-          'margin-top':'-=20'
+          'margin-top': '-=' + that.lyric.find('li:first-child').outerHeight()/2.5
         })
-        console.log(that.lyric.find('li'))
         that.lyric.find('li').each(function () {
           $(this).removeClass('highLight')
         })
@@ -226,6 +233,30 @@ var app = (function () {
   }
 
 
+
+
+  fmPlayer.prototype.reRenderLycBack = function (currentTime) {
+    var that = this;
+    this.lyricArr.forEach(function (item, index) {
+      if(item.time <= currentTime &&  currentTime <= that.lyricArr[index+1].time){
+        that.lyric.find('li:first-child').animate({
+          'margin-top' : '-' + that.lyric.find('li:first-child').outerHeight() * index/2
+        })
+      }
+    })
+  }
+
+  fmPlayer.prototype.reRenderLycFront = function (currentTime) {
+    var that = this;
+    this.lyricArr.forEach(function (item, index) {
+      if(item.time <= currentTime &&  currentTime <= that.lyricArr[index+1].time){
+        that.lyric.find('li:first-child').animate({
+          'margin-top' : '+' + that.lyric.find('li:first-child').outerHeight() * index/2
+        })
+      }
+    })
+  }
+
   return {
     init:function () {
       new fmPlayer();
@@ -234,3 +265,6 @@ var app = (function () {
 })()
 
 var a = app.init();
+// text.init()
+// drag.init('#header')
+
