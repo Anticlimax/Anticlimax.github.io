@@ -1,6 +1,6 @@
 # Favorite Tiles Privacy Policy
 
-**Effective date:** 2026-07-31
+**Effective date:** 2026-08-03
 
 ## Summary
 
@@ -21,9 +21,9 @@ Favorite Tiles reads Chrome bookmark titles, URLs, and folder structure through 
 
 Favorite Tiles reads bookmarks but does not create, edit, or delete them. It does not save a separate persistent copy of the bookmark tree, bookmark titles, or a bookmark list. Bookmark information is held in extension runtime memory while the dock or its supporting extension process is active.
 
-### Active page identity after a toolbar action
+### Page access for the cross-tab dock
 
-Chrome grants Favorite Tiles temporary active-tab access only when the user explicitly clicks its toolbar button. At that time, Favorite Tiles uses the current tab's Chrome tab ID to insert or toggle its dock in that tab. It does not continuously monitor pages or activate itself on a page without that action.
+Favorite Tiles runs its bundled local dock on normal HTTP and HTTPS webpages so the dock is available when a user moves across tabs. The toolbar button can hide or show the dock on the current page.
 
 The dock is added to the page only to render its own interface. Favorite Tiles does not read or collect page text, form fields, selections, browsing history, page URL, or page title for profiling or any other purpose.
 
@@ -67,13 +67,13 @@ Favorite Tiles does not collect user data for the developer or for any third par
 
 In particular, Favorite Tiles does not:
 
-- transmit bookmark data, active-tab information, favicon data, preferences, cache data, or dock state to the developer, a third party, a web service, or a remote server;
+- transmit bookmark data, page-access information, favicon data, preferences, cache data, or dock state to the developer, a third party, a web service, or a remote server;
 - sell, rent, share, disclose, or otherwise make user data available to third parties;
 - use data for advertising, personalized advertising, marketing, analytics, telemetry, tracking, profiling, crash reporting, or measurement;
 - use remote code, third-party analytics SDKs, or a developer-operated backend; or
 - allow the developer or any other human to read this data. Because it is not transmitted to a person or service, there is no human review of it.
 
-Favorite Tiles has no host permissions and makes no external network requests. Its only favicon operation is the Chrome-internal `_favicon` request described above; it is not a request to an external favicon provider by the extension.
+Favorite Tiles requests access to normal HTTP and HTTPS pages only to render its dock across tabs and makes no external network requests. Its only favicon operation is the Chrome-internal `_favicon` request described above; it is not a request to an external favicon provider by the extension.
 
 ## Chrome permissions
 
@@ -81,13 +81,10 @@ Favorite Tiles requests the following Chrome permissions, each only for its sing
 
 | Permission | Why it is used |
 | --- | --- |
-| `activeTab` | Lets Chrome grant temporary access to the current tab after the user clicks the toolbar button, so the dock can be shown or hidden there. |
 | `bookmarks` | Reads bookmark titles, URLs, and folder structure to choose and display favorite bookmarks. |
 | `favicon` | Uses Chrome's internal favicon capability to display bookmark icons locally. |
-| `scripting` | Inserts the local dock interface into the active tab after the explicit toolbar action. |
 | `storage` | Saves local preferences, dock position/state, and the optional local enhanced-favicon cache. |
-
-No host permissions are requested.
+| `http://*/*`, `https://*/*` | Runs the bundled local dock on normal web pages so it remains available across tabs. This access is used only to render the extension interface; Favorite Tiles does not inspect or collect webpage content. |
 
 ## Chrome Web Store Limited Use statement
 
