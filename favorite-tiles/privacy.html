@@ -1,1 +1,339 @@
-{}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Favorite Tiles Privacy Policy</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --page: #f4f7fb;
+      --surface: #ffffff;
+      --ink: #172033;
+      --muted: #526076;
+      --line: #c7d1df;
+      --accent: #175f9c;
+      --accent-soft: #e5f1fb;
+      --quote: #0c4a6e;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { background: var(--page); }
+
+    body {
+      margin: 0;
+      min-width: 20rem;
+      background: var(--page);
+      color: var(--ink);
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 0.75rem;
+      left: 0.75rem;
+      z-index: 1;
+      transform: translateY(-180%);
+      padding: 0.55rem 0.75rem;
+      border-radius: 0.4rem;
+      background: var(--ink);
+      color: var(--surface);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .skip-link:focus { transform: translateY(0); }
+
+    main {
+      width: min(100% - 2rem, 52rem);
+      margin: 2.5rem auto;
+      padding: clamp(1.25rem, 4vw, 3.25rem);
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background: var(--surface);
+      box-shadow: 0 0.75rem 2.5rem rgb(23 32 51 / 0.08);
+    }
+
+    header {
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .product-name {
+      margin: 0 0 0.45rem;
+      color: var(--accent);
+      font-size: 0.875rem;
+      font-weight: 750;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 7vw, 3.25rem);
+      letter-spacing: -0.035em;
+    }
+
+    h2 {
+      margin: 2.75rem 0 0.9rem;
+      font-size: clamp(1.35rem, 4vw, 1.8rem);
+      letter-spacing: -0.018em;
+    }
+
+    h3 {
+      margin: 1.85rem 0 0.65rem;
+      font-size: 1.12rem;
+    }
+
+    p, li { max-width: 72ch; }
+
+    p { margin: 0.85rem 0; }
+
+    .effective {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    ul {
+      margin: 0.85rem 0;
+      padding-left: 1.35rem;
+    }
+
+    li + li { margin-top: 0.48rem; }
+
+    code {
+      padding: 0.08em 0.3em;
+      border-radius: 0.25rem;
+      background: var(--accent-soft);
+      color: var(--quote);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 0.92em;
+    }
+
+    blockquote {
+      margin: 1.15rem 0;
+      padding: 1rem 1.15rem;
+      border-left: 0.3rem solid var(--accent);
+      border-radius: 0 0.45rem 0.45rem 0;
+      background: var(--accent-soft);
+      color: var(--quote);
+      font-weight: 650;
+    }
+
+    blockquote p { margin: 0; }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 1.15rem 0;
+      border: 1px solid var(--line);
+      border-radius: 0.6rem;
+    }
+
+    table {
+      width: 100%;
+      min-width: 34rem;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    caption {
+      padding: 0.75rem 1rem;
+      color: var(--muted);
+      font-weight: 650;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 0.8rem 1rem;
+      border-top: 1px solid var(--line);
+      vertical-align: top;
+    }
+
+    th {
+      background: color-mix(in srgb, var(--accent-soft) 72%, var(--surface));
+      font-weight: 750;
+    }
+
+    th:first-child, td:first-child { width: 30%; }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --page: #101827;
+        --surface: #182235;
+        --ink: #edf4ff;
+        --muted: #b9c6d8;
+        --line: #3d4d66;
+        --accent: #76c6ff;
+        --accent-soft: #173d5c;
+        --quote: #d4ecff;
+      }
+    }
+
+    @media (max-width: 38rem) {
+      main {
+        width: 100%;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#policy">Skip to policy</a>
+  <main id="policy">
+    <header>
+      <p class="product-name">Favorite Tiles</p>
+      <h1>Privacy Policy</h1>
+      <p class="effective">Effective date: <time datetime="2026-07-31">2026-07-31</time></p>
+    </header>
+
+    <section aria-labelledby="summary">
+      <h2 id="summary">Summary</h2>
+      <p>Favorite Tiles is a local, movable dock for favorite bookmarks. It runs inside Chrome to show selected bookmarks as tiles on the current page. It does not provide an account, a cloud service, or a developer-operated server.</p>
+      <p>This policy describes the information Favorite Tiles accesses on a device, why it uses that information, how local storage works, and the controls available in the extension. It describes the extension's behavior; Chrome and bookmarked websites have their own policies and settings.</p>
+    </section>
+
+    <section aria-labelledby="data-use">
+      <h2 id="data-use">Information Favorite Tiles accesses and uses</h2>
+
+      <h3>Bookmark titles, URLs, and folder structure</h3>
+      <p>Favorite Tiles reads Chrome bookmark titles, URLs, and folder structure through Chrome's bookmarks API. It uses that information only to:</p>
+      <ul>
+        <li>find the default <strong>Favorites</strong> folder or the bookmark folder selected in Settings;</li>
+        <li>show the available bookmark folders so a user can choose one;</li>
+        <li>create, label, order, and de-duplicate the bookmark tiles in the dock; and</li>
+        <li>refresh an already-open dock after a bookmark or the selected folder changes.</li>
+      </ul>
+      <p>Favorite Tiles reads bookmarks but does not create, edit, or delete them. It does not save a separate persistent copy of the bookmark tree, bookmark titles, or a bookmark list. Bookmark information is held in extension runtime memory while the dock or its supporting extension process is active.</p>
+
+      <h3>Active page identity after a toolbar action</h3>
+      <p>Chrome grants Favorite Tiles temporary active-tab access only when the user explicitly clicks its toolbar button. At that time, Favorite Tiles uses the current tab's Chrome tab ID to insert or toggle its dock in that tab. It does not continuously monitor pages or activate itself on a page without that action.</p>
+      <p>The dock is added to the page only to render its own interface. Favorite Tiles does not read or collect page text, form fields, selections, browsing history, page URL, or page title for profiling or any other purpose.</p>
+
+      <h3>Locally rendered favicons</h3>
+      <p>For each bookmark shown in the dock, Favorite Tiles asks Chrome's built-in, extension-local <code>_favicon</code> endpoint for the bookmark's small site icon. The bookmark URL is supplied to that Chrome-internal request only so Chrome can return the icon for local display. Favorite Tiles does not send that URL to a developer-operated or third-party favicon service.</p>
+      <p>If <strong>Icon enhancement</strong> is enabled, Favorite Tiles may locally process the favicon pixels for display and keep an optional local icon cache. That cache contains processed icon image data and cache metadata, including an internal favicon source reference, a fingerprint, and timestamps. The internal source reference is based on the bookmarked page URL, so it can contain URL-derived information. The cache is used only to render icons faster and more consistently in the dock.</p>
+
+      <h3>Preferences and dock state</h3>
+      <p>Favorite Tiles stores the following in Chrome's local extension storage (<code>chrome.storage.local</code>):</p>
+      <ul>
+        <li>the selected bookmark-folder ID, if one is chosen;</li>
+        <li>display preferences: icon enhancement on or off, icon size, and animation preference;</li>
+        <li>dock state: collapsed or expanded state and its normalized on-screen position; and</li>
+        <li>the optional enhanced-favicon cache described above.</li>
+      </ul>
+      <p>No bookmark content is used to create an account, profile, audience segment, or advertising identifier.</p>
+    </section>
+
+    <section aria-labelledby="storage-controls">
+      <h2 id="storage-controls">Local storage, retention, and your controls</h2>
+      <p>Favorite Tiles uses only Chrome's local extension storage area. It does not use <code>chrome.storage.sync</code> or a developer-operated database.</p>
+      <ul>
+        <li><strong>Preferences and dock state</strong> remain locally stored until they are changed, the position is reset, or Chrome removes the extension's local storage under its own extension-management behavior.</li>
+        <li><strong>Bookmark data</strong> is not retained as a persistent bookmark list by Favorite Tiles. It is used in runtime memory to build or refresh the dock.</li>
+        <li><strong>Optional enhanced favicon cache:</strong> the cache is limited to 64 entries and 3 MiB. Entries older than 30 days are not used, and stale or invalid entries are removed during cache maintenance. The cache may remain until it is maintained, cleared, or Chrome removes the extension's local storage.</li>
+      </ul>
+      <p>You can control this data in Favorite Tiles Settings:</p>
+      <ul>
+        <li>choose a different source folder or return to automatic folder selection;</li>
+        <li>change icon size, icon enhancement, and animations;</li>
+        <li>reset the dock position; and</li>
+        <li>use <strong>Clear icon cache</strong> to remove the enhanced favicon cache.</li>
+      </ul>
+      <p>You can also disable or remove the extension through Chrome. Favorite Tiles does not change the bookmarks held by Chrome.</p>
+    </section>
+
+    <section aria-labelledby="no-sharing">
+      <h2 id="no-sharing">No collection, transmission, sale, advertising, analytics, or human access</h2>
+      <p>Favorite Tiles does not collect user data for the developer or for any third party. The information described above stays within Chrome on the device for the local bookmark-dock feature.</p>
+      <p>In particular, Favorite Tiles does not:</p>
+      <ul>
+        <li>transmit bookmark data, active-tab information, favicon data, preferences, cache data, or dock state to the developer, a third party, a web service, or a remote server;</li>
+        <li>sell, rent, share, disclose, or otherwise make user data available to third parties;</li>
+        <li>use data for advertising, personalized advertising, marketing, analytics, telemetry, tracking, profiling, crash reporting, or measurement;</li>
+        <li>use remote code, third-party analytics SDKs, or a developer-operated backend; or</li>
+        <li>allow the developer or any other human to read this data. Because it is not transmitted to a person or service, there is no human review of it.</li>
+      </ul>
+      <p>Favorite Tiles has no host permissions and makes no external network requests. Its only favicon operation is the Chrome-internal <code>_favicon</code> request described above; it is not a request to an external favicon provider by the extension.</p>
+    </section>
+
+    <section aria-labelledby="permissions">
+      <h2 id="permissions">Chrome permissions</h2>
+      <p>Favorite Tiles requests the following Chrome permissions, each only for its single purpose: showing a local, movable dock for favorite bookmarks.</p>
+      <div class="table-wrap" tabindex="0" aria-label="Chrome permissions and their uses">
+        <table>
+          <caption>Permissions used by Favorite Tiles</caption>
+          <thead>
+            <tr>
+              <th scope="col">Permission</th>
+              <th scope="col">Why it is used</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><code>activeTab</code></th>
+              <td>Lets Chrome grant temporary access to the current tab after the user clicks the toolbar button, so the dock can be shown or hidden there.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>bookmarks</code></th>
+              <td>Reads bookmark titles, URLs, and folder structure to choose and display favorite bookmarks.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>favicon</code></th>
+              <td>Uses Chrome's internal favicon capability to display bookmark icons locally.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>scripting</code></th>
+              <td>Inserts the local dock interface into the active tab after the explicit toolbar action.</td>
+            </tr>
+            <tr>
+              <th scope="row"><code>storage</code></th>
+              <td>Saves local preferences, dock position/state, and the optional local enhanced-favicon cache.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>No host permissions are requested.</p>
+    </section>
+
+    <section aria-labelledby="limited-use">
+      <h2 id="limited-use">Chrome Web Store Limited Use statement</h2>
+      <blockquote>
+        <p>“The use of information received from Google APIs will adhere to the Chrome Web Store User Data Policy, including the Limited Use requirements.”</p>
+      </blockquote>
+      <p>Favorite Tiles uses the information it accesses only to provide and improve its disclosed single purpose: a local, movable dock for favorite bookmarks.</p>
+    </section>
+
+    <section aria-labelledby="children">
+      <h2 id="children">Children</h2>
+      <p>Favorite Tiles is not directed to children. It does not ask for a name, email address, age, payment information, or account. It does not transmit data from children or other users to the developer. Parents and guardians should use Chrome's own controls when deciding which extensions and bookmarks are appropriate.</p>
+    </section>
+
+    <section aria-labelledby="international">
+      <h2 id="international">International data handling</h2>
+      <p>Favorite Tiles does not operate a data-transfer service and does not send the information described in this policy between countries. Chrome and bookmarked websites are separate products and are governed by their own terms, settings, and privacy practices.</p>
+    </section>
+
+    <section aria-labelledby="security">
+      <h2 id="security">Security</h2>
+      <p>Favorite Tiles is designed so the described data remains in Chrome's extension runtime or local extension storage on the device. The extension has no server that receives this data. Device security, Chrome profile security, and Chrome itself remain important to protecting locally stored information; no software can promise absolute security.</p>
+    </section>
+
+    <section aria-labelledby="changes">
+      <h2 id="changes">Changes to this policy</h2>
+      <p>If Favorite Tiles changes its data practices, this policy will be updated to describe those practices and the effective date will be revised before the changed practices take effect.</p>
+    </section>
+  </main>
+</body>
+</html>
